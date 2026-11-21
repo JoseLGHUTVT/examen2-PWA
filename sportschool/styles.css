@@ -1,0 +1,53 @@
+:root{--ink:#1a1c2c;--grass:#2f7d3b;--grass2:#38b764;--chalk:#f4f4f4;--sun:#ffcd75;--sky:#41a6f6;--red:#b13e53;--px:4px}
+*{box-sizing:border-box;margin:0}
+html{image-rendering:pixelated}
+body{font:700 16px/1.45 "Courier New",ui-monospace,monospace;color:var(--chalk);background:
+ repeating-linear-gradient(90deg,var(--grass) 0 64px,#2a7035 64px 128px);min-height:100vh;padding-bottom:40px}
+h1,h2{font-weight:900;letter-spacing:1px;text-shadow:var(--px) var(--px) 0 var(--ink)}
+h1{font-size:22px}h2{font-size:18px;margin-bottom:10px;color:var(--sun)}
+p{margin-bottom:10px}
+.sprite{width:48px;height:48px;image-rendering:pixelated}
+.sprite.sm{width:32px;height:32px}
+header{display:flex;align-items:center;gap:12px;padding:14px 16px;background:var(--ink);border-bottom:var(--px) solid var(--chalk)}
+.chip{margin-left:auto;padding:2px 8px;background:var(--grass2);color:var(--ink);box-shadow:0 0 0 var(--px) var(--ink),0 0 0 calc(var(--px)*2) var(--chalk)}
+.chip.off{background:var(--red);color:var(--chalk)}
+nav{display:flex;gap:6px;overflow-x:auto;padding:12px 12px 4px;max-width:860px;margin:auto}
+nav button{flex:0 0 auto;font:inherit;padding:6px 12px;background:var(--ink);color:var(--chalk);border:0;cursor:pointer;box-shadow:0 0 0 var(--px) var(--chalk)}
+nav button.on{background:var(--sun);color:var(--ink)}
+main{max-width:860px;margin:auto;padding:16px 12px}
+.view{display:none}.view.on{display:grid;gap:20px}
+.board{background:var(--ink);padding:16px;box-shadow:0 0 0 var(--px) var(--chalk),var(--px) var(--px) 0 calc(var(--px)*2) rgba(0,0,0,.45)}
+label{display:block;margin-bottom:12px}
+input,select,textarea{display:block;width:100%;margin-top:4px;font:inherit;padding:8px;color:var(--ink);background:var(--chalk);border:0;border-radius:0;box-shadow:inset var(--px) var(--px) 0 #b5b5c0}
+input:focus,select:focus,textarea:focus,button:focus-visible{outline:var(--px) solid var(--sun);outline-offset:2px}
+.check{display:flex;gap:10px;align-items:center}.check input{width:20px;height:20px;margin:0}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.row{display:flex;gap:12px;flex-wrap:wrap}
+.btn{font:inherit;padding:10px 16px;border:0;cursor:pointer;color:var(--ink);background:var(--sun);box-shadow:0 var(--px) 0 #c38b2e,0 0 0 var(--px) var(--chalk)}
+.btn.alt{background:var(--grass2);box-shadow:0 var(--px) 0 #1f7a3e,0 0 0 var(--px) var(--chalk)}
+.btn.sky{background:var(--sky);box-shadow:0 var(--px) 0 #2467a8,0 0 0 var(--px) var(--chalk)}
+.btn:active{transform:translateY(var(--px));box-shadow:0 0 0 var(--px) var(--chalk)}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:14px;margin:14px 4px}
+.kpi{background:#000;padding:10px;text-align:center;box-shadow:0 0 0 var(--px) var(--sky)}
+.kpi b{display:block;font-size:30px;color:var(--grass2);font-variant-numeric:tabular-nums}
+.scroll{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:560px}
+th,td{padding:6px 8px;text-align:left;border-bottom:2px dashed #3c4066}
+th{color:var(--sun)}
+pre{background:#000;padding:10px;white-space:pre-wrap;word-break:break-word;max-height:180px;overflow:auto;color:var(--grass2);font:inherit;font-size:14px}
+.msg{color:var(--sun);min-height:1.4em;margin:8px 0 0}
+.alumno{display:flex;justify-content:space-between;gap:8px;padding:8px 0;border-bottom:2px dashed #3c4066}
+.bar{display:grid;grid-template-columns:110px 1fr 56px;gap:8px;align-items:center;margin-bottom:8px}
+.bar i{display:block;height:20px;background:repeating-linear-gradient(90deg,var(--grass2) 0 12px,#1f7a3e 12px 16px)}
+/* splash */
+#splash{position:fixed;inset:0;z-index:9;background:var(--ink);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;transition:opacity .4s steps(4)}
+#splash.out{opacity:0;pointer-events:none}
+#splash .sprite{width:96px;height:96px;animation:hop .6s steps(2) infinite}
+.loadbar{width:200px;height:20px;box-shadow:0 0 0 var(--px) var(--chalk);overflow:hidden}
+.loadbar i{display:block;height:100%;width:0;background:var(--grass2);animation:fill 1.6s steps(10) forwards}
+@keyframes hop{50%{transform:translateY(-16px)}}
+@keyframes fill{to{width:100%}}
+@media (prefers-reduced-motion:reduce){#splash .sprite,.loadbar i{animation:none}.loadbar i{width:100%}}
+.view>*{min-width:0}
+main{overflow-x:hidden}
+.btn.del{padding:2px 8px;font-size:14px;color:var(--chalk);background:var(--red);box-shadow:0 var(--px) 0 #6e2434,0 0 0 var(--px) var(--chalk)}
